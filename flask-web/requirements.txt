@@ -1,0 +1,4 @@
+uwsgi
+gunicorn
+flask
+flask_restful
