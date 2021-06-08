@@ -10,5 +10,7 @@ ADD . /app
 RUN rm -rf venv
 RUN pip install -r requirements.txt
 
-#CMD ["uwsgi", "uwsgi.ini"]
-ENTRYPOINT ["./gunicorn.sh"]
+RUN sed -i -e 's/\r$/\n/' gunicorn.sh
+
+CMD ["uwsgi", "uwsgi.ini"]
+#ENTRYPOINT ["./gunicorn.sh"]

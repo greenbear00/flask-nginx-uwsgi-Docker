@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ ! -d /tmp/logs ]; then
   mkdir /tmp/logs
 fi
@@ -26,7 +27,6 @@ sleep 1
 #export PYTHONPATH=/opt/SimpleWeb/venv/lib/python3.6/site-packages:$PYTHONPATH
 
 
-# cpu확인 grep -c processor /proc/cpuinfo
-# workers는 기본 (2 * $num_cores) + 1
+
 gunicorn --workers 4 --timeout=10 --bind 0.0.0.0:5000 app:app >> /tmp/logs/flask.log
 #gunicorn web:app -b 0.0.0.0:5000 -w 2 --timeout=10 -k gevent >> /tmp/logs/flask.log

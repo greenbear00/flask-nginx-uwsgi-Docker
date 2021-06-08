@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  flask:
+    build: ./flask-web
+    container_name: flask
+    restart: always
+#    entrypoint:
+#      - APP_NAME=FlaskTest
+    ports:
+      - "5000:5000"
+
+  ngnix:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "8080:8080"
+
+#networks:
+#  backend:
+#    driver: bridge
